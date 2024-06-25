@@ -14,8 +14,11 @@ export default function Page() {
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
           <div className={styles.shape} />
-          <p className={`${lusitana.className} antialiased text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-            <strong className="font-semibold">Welcome to Acme.</strong> This is the example for the{' '}
+          <p
+            className={`${lusitana.className} text-xl text-gray-800 antialiased md:text-3xl md:leading-normal`}
+          >
+            <strong className="font-semibold">Welcome to Acme.</strong> This is
+            the example for the{' '}
             <a href="https://nextjs.org/learn/" className="text-blue-500">
               Next.js Learn Course
             </a>
@@ -35,7 +38,7 @@ export default function Page() {
             width={560}
             height={620}
             quality={80}
-            className='block md:hidden'
+            className="block md:hidden"
           />
           <Image
             src="/hero-desktop.png"
