@@ -15,8 +15,7 @@ import {
 const ITEMS_PER_PAGE = 6;
 
 export async function fetchRevenue() {
-  // This is equivalent to in fetch(..., {cache: 'no-store'})
-  noStore();
+  noStore(); // This is equivalent to in fetch(..., {cache: 'no-store'})
 
   try {
     const data = await sql<Revenue>`SELECT * FROM revenue`;
