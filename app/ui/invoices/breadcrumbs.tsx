@@ -13,6 +13,9 @@ export default function Breadcrumbs({
 }: {
   breadcrumbs: Breadcrumb[];
 }) {
+  const isLastBreadcrumb = (index: number, length: number): boolean =>
+    index === length - 1;
+
   return (
     <nav aria-label="Breadcrumb" className="mb-6 block">
       <ol className={clsx(lusitana.className, 'flex text-xl md:text-2xl')}>
@@ -24,7 +27,11 @@ export default function Breadcrumbs({
               breadcrumb.active ? 'text-gray-900' : 'text-gray-500',
             )}
           >
-            <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
+            {!isLastBreadcrumb(index, breadcrumbs.length) ? (
+              <Link href={breadcrumb.href}>{breadcrumb.label}</Link>
+            ) : (
+              <span className="cursor-default">{breadcrumb.label}</span>
+            )}
             {index < breadcrumbs.length - 1 ? (
               <span className="mx-3 inline-block">/</span>
             ) : null}

@@ -15,10 +15,10 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
   const debouncedSearch = useDebouncedCallback((value: string) => {
     const params = new URLSearchParams(searchParams);
-    params.set('page', '1');
 
     if (value) {
       params.set('query', value);
+      params.set('page', '1');
     } else {
       params.delete('query');
     }
