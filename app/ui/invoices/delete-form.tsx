@@ -5,16 +5,18 @@ export default function DeleteInvoiceForm({
   action,
 }: {
   children: React.ReactNode;
-  action: () => Promise<void>;
+  action: () => Promise<{ message: string }>;
 }) {
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    confirm('Are you sure you want to delete this invoice?') && action();
+
+    try {
+      confirm('Are you sure you want to delete this invoice?') &&
+        (await action());
+    } catch (error) {
+      console.error('Failed to delete invoice:', error);
+    }
   };
 
-  return (
-    <form action={action} onSubmit={handleSubmit}>
-      {children}
-    </form>
-  );
+  return <form onSubmit={handleSubmit}>{children}</form>;
 }
