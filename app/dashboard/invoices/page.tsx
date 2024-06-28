@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { Suspense } from 'react';
 
 import { fetchInvoicesPages } from '@/app/lib/data';
@@ -8,6 +9,10 @@ import { CreateInvoice } from '@/app/ui/invoices/buttons';
 import Search from '@/app/ui/search';
 import Table from '@/app/ui/invoices/table';
 import Pagination from '@/app/ui/invoices/pagination';
+
+export const metadata: Metadata = {
+  title: 'Invoices',
+};
 
 export default async function Page({
   searchParams,
